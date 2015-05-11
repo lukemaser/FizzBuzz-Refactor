@@ -9,7 +9,6 @@
        function checkNumber(n) {
             if (isNaN(n) )
                 prompt("Please enter an integer:", 0);
-            else 
         }
 
         checkNumber(number);
