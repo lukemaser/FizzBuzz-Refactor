@@ -1,32 +1,32 @@
 !function() {
     'use strict'
 
-    var number = prompt("Please enter a number:", 0);
-        number = parseInt(number, 10);
+    // prompt user for a maximum integer and parse the string to an integer
 
+    var number = parseInt(prompt("Please enter a number:", 0), 10);
+    
+    checkNumber(number);
 
-        //isNaN = prompt("Please enter a number:", 0);
-       function checkNumber(n) {
-            if (isNaN(n) )
-                prompt("Please enter an integer:", 0);
-        }
+    // if parseInt evaluates to NaN, re-prompt
 
-        checkNumber(number);
-        
+    function checkNumber(n) {
+        do {
+            number = parseInt(prompt("Please enter a number:", 0), 10);
+        } while(isNaN(number)); 
+    }
+      
+    // create ul element to hold result of FizzBuzz function
 
-    var $ul = document.querySelector('ul');
- 
-
-    console.log('number', number);
+    var ul = document.querySelector('ul'); 
 
     function presentToConsole(result) {
         console.log(result);
     }
 
     function presentToDOM(result) {
-        var $li = document.createElement('li');
-        $li.innerText = result;
-        $ul.appendChild($li);
+        var li = document.createElement('li');
+        li.innerText = result;
+        ul.appendChild(li);
     }
 
     function fizzBuzz(number, present) {
@@ -48,6 +48,8 @@
 
         return ret;
     }
+
+    console.log('number', number);
 
     fizzBuzz(number, presentToDOM);
     fizzBuzz(number, presentToConsole);
